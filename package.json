@@ -5,12 +5,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "watch": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "onoff": "^3.2.1"
+  },
   "devDependencies": {
     "@types/node": "^8.0.29",
+    "@types/onoff": "0.0.28",
     "nodemon": "^1.18.3",
     "ts-node": "3.3.0",
     "typescript": "2.5.2"
