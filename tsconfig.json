@@ -1,13 +1,17 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "noImplicitAny": true,
-        "outDir": "dist",
-        "rootDir": ".",
-        "sourceMap": false
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6"
+    ],
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "sourceMap": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
