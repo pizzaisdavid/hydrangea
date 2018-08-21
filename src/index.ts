@@ -48,13 +48,13 @@ export class Pintail {
     });
   }
 
-  write(value: boolean): Promise<boolean> {
+  write(value: boolean): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.gpio.write(convertBooleanToBit(value), (error, bit) => {
+      this.gpio.write(convertBooleanToBit(value), (error) => {
         if (error) {
           reject(error);
         } else {
-          resolve(convertBitToBoolean(bit));
+          resolve();
         }
       });
     });
