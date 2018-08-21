@@ -6,8 +6,9 @@
     ],
     "module": "commonjs",
     "target": "es5",
-    "noImplicitAny": true,
     "outDir": "./dist",
+    "noImplicitAny": true,
+    "declaration": true,
     "sourceMap": false
   },
   "exclude": [
