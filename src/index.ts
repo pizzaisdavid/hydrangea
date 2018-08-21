@@ -50,8 +50,7 @@ export class Pintail {
 
   write(value: boolean): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      const bit = convertBooleanToBit(value);
-      this.gpio.write(bit, (error, bit) => {
+      this.gpio.write(convertBooleanToBit(value), (error, bit) => {
         if (error) {
           reject(error);
         } else {
