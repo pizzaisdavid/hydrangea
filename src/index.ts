@@ -2,52 +2,67 @@
 import { Gpio, GpioOptions } from 'onoff';
 import { Subject, Subscription } from 'rxjs';
 
+export enum Direction {
+  in = 'in',
+  out = 'out',
+  low = 'low',
+  high = 'high',
+};
+
+export enum Edge {
+  none = 'none',
+  rising = 'rising',
+  falling = 'falling',
+  both = 'both',
+};
+
 export class Pintail {
 
-  static make(pin: number, direction: string, edge?: string, options?: GpioOptions): Pintail {
+  static make(pin: number, direction: Direction, edge?: Edge, options?: GpioOptions): Pintail {
     const gpio = new Gpio(pin, direction, edge, options);
     return new Pintail(gpio);
   }
 
-  private subject: Subject<any>;
+  private subject: Subject<boolean>;
 
   private constructor(private gpio: Gpio) {
     this.subject = new Subject();
-    this.gpio.watch((error, value) => {
+    this.gpio.watch((error, bit) => {
       if (error) {
         this.subject.error(error);
       } else {
-        this.subject.next(value);
+        this.subject.next(convertBitToBoolean(bit));
       }
     });
   }
 
-  read(): Promise<number> {
+  read(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.gpio.read((error, value) => {
+      this.gpio.read((error, bit) => {
         if (error) {
           reject(error);
         } else {
-          resolve(value);
+          resolve(convertBitToBoolean(bit));
         }
       });
     });
   }
 
-  write(value: number): Promise<number> {
+  write(value: boolean): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.gpio.write(value, (error, value) => {
+      const bit = convertBooleanToBit(value);
+      this.gpio.write(bit, (error, bit) => {
         if (error) {
           reject(error);
         } else {
-          resolve(value);
+          resolve(convertBitToBoolean(bit));
         }
       });
     });
   }
 
   subscribe(
-    onNext: (value: number) => void,
+    onNext: (value: boolean) => void,
     onError?: (error: Error) => void,
     onComplete?: () => void,
   ): Subscription {
@@ -59,4 +74,12 @@ export class Pintail {
     this.gpio.unexport();
   }
 
+}
+
+function convertBitToBoolean(value: number): boolean {
+  return value === 1;
+}
+
+function convertBooleanToBit(value: boolean): number {
+  return value ? 1 : 0;
 }

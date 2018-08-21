@@ -1,10 +1,10 @@
 
-import { Pintail } from './index';
+import { Pintail, Direction, Edge } from './index';
 
 const DURATION_IN_MILLISECONDS = 60000;
 
-const button = Pintail.make(7, 'in', 'both');
-const led = Pintail.make(4, 'in');
+const button = Pintail.make(7, Direction.in, Edge.both);
+const led = Pintail.make(4, Direction.in);
 
 const subscription = button.subscribe(value => {
   led.write(value)
