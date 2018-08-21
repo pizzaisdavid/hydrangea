@@ -1,5 +1,5 @@
 {
-  "name": "onoff-promise",
+  "name": "pintail",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -14,7 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "onoff": "^3.2.1"
+    "onoff": "^3.2.1",
+    "rxjs": "^6.2.2"
   },
   "devDependencies": {
     "@types/node": "^8.0.29",

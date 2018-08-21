@@ -1,12 +1,25 @@
 
 import { Gpio, GpioOptions } from 'onoff';
+import { Subject, Subscription } from 'rxjs';
 
-export class GpioPromise {
+export class Pintail {
 
-  private gpio: Gpio;
+  static make(pin: number, direction: string, edge?: string, options?: GpioOptions): Pintail {
+    const gpio = new Gpio(pin, direction, edge, options);
+    return new Pintail(gpio);
+  }
 
-  constructor(pin: number, direction: string, edge?: string, options?: GpioOptions) {
-    this.gpio = new Gpio(pin, direction, edge, options);
+  private subject: Subject<any>;
+
+  private constructor(private gpio: Gpio) {
+    this.subject = new Subject();
+    this.gpio.watch((error, value) => {
+      if (error) {
+        this.subject.error(error);
+      } else {
+        this.subject.next(value);
+      }
+    });
   }
 
   read(): Promise<number> {
@@ -33,15 +46,16 @@ export class GpioPromise {
     });
   }
 
-  watch(callback: (error: Error, value: number) => void):void {
-    this.gpio.watch(callback);
-  }
-
-  unwatch(callback?: (error: Error, value: number) => void):void {
-    this.gpio.unwatch(callback);
+  subscribe(
+    onNext: (value: number) => void,
+    onError?: (error: Error) => void,
+    onComplete?: () => void,
+  ): Subscription {
+    return this.subject.subscribe(onNext, onError, onComplete);
   }
 
   unexport() {
+    this.subject.complete();
     this.gpio.unexport();
   }
 
