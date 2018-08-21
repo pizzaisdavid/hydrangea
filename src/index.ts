@@ -77,9 +77,9 @@ export class Pintail {
 }
 
 function convertBitToBoolean(value: number): boolean {
-  return value === 1;
+  return Boolean(value);
 }
 
 function convertBooleanToBit(value: boolean): number {
-  return value ? 1 : 0;
+  return Number(value);
 }
