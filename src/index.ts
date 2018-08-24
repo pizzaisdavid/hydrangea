@@ -16,7 +16,18 @@ export enum Edge {
   both = 'both',
 };
 
-export class Pintail {
+export interface Pin {
+  read(): Promise<boolean>;
+  write(value: boolean): Promise<void>;
+  subscribe(
+    onNext: (value: boolean) => void,
+    onError?: (error: Error) => void,
+    onComplete?: () => void
+  ): Subscription;
+  unexport(): void;
+}
+
+export class Pintail implements Pin {
 
   static make(pin: number, direction: Direction, edge?: Edge, options?: GpioOptions): Pintail {
     const gpio = new Gpio(pin, direction, edge, options);
