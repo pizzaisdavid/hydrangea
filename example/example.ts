@@ -1,5 +1,5 @@
 
-import { Pintail, Direction, Edge } from './index';
+import { Pintail, Direction, Edge } from '../src';
 
 const DURATION_IN_MILLISECONDS = 60000;
 
