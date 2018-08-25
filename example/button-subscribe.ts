@@ -1,8 +1,8 @@
 
-import { Pintail, Direction, Edge } from '../src';
+import { pi, Direction, Edge } from '../src';
 
 const DURATION_IN_MILLISECONDS = 60000;
-const button = Pintail.make(7, Direction.in, Edge.both);
+const button = pi.createPin({ id: 7, direction: Direction.in, edge: Edge.both });
 
 const subscription = button.subscribe(value => {
   console.log(`value is ${value}`);
