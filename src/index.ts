@@ -1,4 +1,4 @@
 
-export * from './Pi';
+export * from './pintail';
 export * from './Pin';
-export * from './Pintail';
+export * from './Pint';

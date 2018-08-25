@@ -18,7 +18,7 @@ export enum Edge {
   both = 'both',
 };
 
-export class Pintail implements Pin {
+export class Pint implements Pin {
 
   private subject: Subject<boolean>;
 
