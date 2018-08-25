@@ -4,20 +4,6 @@ import { Pin, Subscription } from './Pin';
 import { Gpio } from 'onoff';
 import { Subject } from 'rxjs/internal/Subject';
 
-export enum Direction {
-  in = 'in',
-  out = 'out',
-  low = 'low',
-  high = 'high',
-};
-
-export enum Edge {
-  none = 'none',
-  rising = 'rising',
-  falling = 'falling',
-  both = 'both',
-};
-
 export class Pint implements Pin {
 
   private subject: Subject<boolean>;
