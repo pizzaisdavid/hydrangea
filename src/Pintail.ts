@@ -1,5 +1,6 @@
 
 import { Pin, Subscription } from './Pin';
+
 import { Gpio } from 'onoff';
 import { Subject } from 'rxjs/internal/Subject';
 
