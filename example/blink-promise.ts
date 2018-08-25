@@ -1,8 +1,8 @@
 
-import { pi, Direction } from '../src'
+import { pintail, Direction } from '../src'
 
 const DURATION_IN_MILLISECONDS = 500;
-const led = pi.createPin({ id: 2, direction: Direction.out });
+const led = pintail.createPin({ id: 2, direction: Direction.out });
 let state = false;
 
 setInterval(() => {
