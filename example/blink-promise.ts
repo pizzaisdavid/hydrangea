@@ -1,8 +1,8 @@
 
-import { Pintail, Direction } from '../src'
+import { pi, Direction } from '../src'
 
 const DURATION_IN_MILLISECONDS = 500;
-const led = Pintail.make(2, Direction.out);
+const led = pi.createPin({ id: 2, direction: Direction.out });
 let state = false;
 
 setInterval(() => {
