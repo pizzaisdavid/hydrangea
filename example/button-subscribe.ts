@@ -1,17 +1,12 @@
 
 import { pintail } from '../src';
 
-const DURATION_IN_MILLISECONDS = 60000;
 const button = pintail.createPin({
   id: 7,
   direction: pintail.direction.in,
   edge: pintail.edge.both
 });
 
-const subscription = button.subscribe(value => {
+button.subscribe(value => {
   console.log(`value is ${value}`);
 });
-
-setTimeout(() => {
-  subscription.unsubscribe();
-}, DURATION_IN_MILLISECONDS);
