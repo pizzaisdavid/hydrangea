@@ -2,7 +2,7 @@
 import { Pin, Subscription } from './Pin';
 
 import { Gpio } from 'onoff';
-import { Subject } from 'rxjs/internal/Subject';
+import { Subject } from 'rxjs';
 
 export class Pint implements Pin {
 
