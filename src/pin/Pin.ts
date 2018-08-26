@@ -1,8 +1,6 @@
 
 import { Subscription } from 'rxjs';
 
-export { Subscription }
-
 export interface Pin {
   read(): Promise<boolean>;
   write(value: boolean): Promise<void>;
