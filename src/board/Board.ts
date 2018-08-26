@@ -1,5 +1,5 @@
 
-import { Pin } from './Pin';
+import { Pin } from '../pin';
 
 export { Pin };
 

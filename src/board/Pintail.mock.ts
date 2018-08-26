@@ -1,10 +1,10 @@
 
 import { Board, PinConfiguration, Pin } from './Board';
-import { Pint } from './Pint';
+import { Pint } from '../pin';
 
 import { Gpio } from 'onoff';
 
-export class Pintail extends Board {
+export class MockPintail extends Board {
 
   createPin(pin: PinConfiguration): Pin {
     const gpio = new Gpio(pin.id, pin.direction);
