@@ -4,10 +4,11 @@ import { Pint } from './Pint';
 
 import { Gpio } from 'onoff';
 
-export namespace mock {
+export class MockPintail implements Board {
 
-  export function createPin(pin: PinConfiguration): Pin {
+  createPin(pin: PinConfiguration): Pin {
     const gpio = new Gpio(pin.id, pin.direction);
     return new Pint(gpio);
   }
+
 }
