@@ -1,6 +1,13 @@
 
 export namespace Gpio {
 
+  export interface configuration {
+    id: number;
+    direction: direction;
+    address?: number;
+    edge?: edge;
+  }
+  
   export enum direction {
     in = 'in',
     out = 'out',
@@ -13,13 +20,6 @@ export namespace Gpio {
     rising = 'rising',
     falling = 'falling',
     both = 'both',
-  }
-
-  export interface configuration {
-    id: number;
-    direction: direction;
-    address?: number;
-    edge?: edge;
   }
 
   export abstract class Stream {
