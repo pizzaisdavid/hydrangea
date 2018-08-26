@@ -1,5 +1,4 @@
 
-import { Pin } from './Pin';
 import { Pint } from './Pint';
 
 import { expect } from 'chai';
@@ -8,7 +7,7 @@ import { Gpio } from 'onoff';
 describe('Pint', () => {
 
   let gpio: Gpio;
-  let pin: Pin;
+  let pin: Pint;
 
   beforeEach(() => {
     gpio = {} as any;
