@@ -4,7 +4,7 @@ import { Pint } from './Pint';
 
 import { Gpio } from 'onoff';
 
-export class Pintail implements Board {
+export class Pintail extends Board {
 
   createPin(pin: PinConfiguration): Pin {
     const gpio = new Gpio(pin.id, pin.direction);

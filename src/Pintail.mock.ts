@@ -4,7 +4,7 @@ import { Pint } from './Pint';
 
 import { Gpio } from 'onoff';
 
-export class MockPintail implements Board {
+export class MockPintail extends Board {
 
   createPin(pin: PinConfiguration): Pin {
     const gpio = new Gpio(pin.id, pin.direction);

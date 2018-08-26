@@ -24,6 +24,9 @@ export interface PinConfiguration {
   edge?: edge;
 }
 
-export interface Board {
-  createPin(pin: PinConfiguration): Pin;
+export abstract class Board {
+  static direction = direction;
+  static edge = edge;
+  
+  abstract createPin(pin: PinConfiguration): Pin;
 }
