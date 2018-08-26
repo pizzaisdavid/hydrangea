@@ -1,29 +1,32 @@
 
-export enum direction {
-  in = 'in',
-  out = 'out',
-  low = 'low',
-  high = 'high',
-};
+export namespace Gpio {
 
-export enum edge {
-  none = 'none',
-  rising = 'rising',
-  falling = 'falling',
-  both = 'both',
-};
+  export enum direction {
+    in = 'in',
+    out = 'out',
+    low = 'low',
+    high = 'high',
+  }
 
-export interface configuration {
-  id: number;
-  direction: direction;
-  address?: number;
-  edge?: edge;
-}
+  export enum edge {
+    none = 'none',
+    rising = 'rising',
+    falling = 'falling',
+    both = 'both',
+  }
 
-export abstract class Gpio {
-  constructor(configuration: configuration) {}
-  abstract watch(callback: (error: Error, value: number) => void): void;
-  abstract read(callback: (error: Error, value: number) => void): void;
-  abstract write(value: number, callback: (error: Error) => void): void;
-  abstract unexport(): void;
+  export interface configuration {
+    id: number;
+    direction: direction;
+    address?: number;
+    edge?: edge;
+  }
+
+  export abstract class Stream {
+    constructor(configuration: configuration) {}
+    abstract watch(callback: (error: Error, value: number) => void): void;
+    abstract read(callback: (error: Error, value: number) => void): void;
+    abstract write(value: number, callback: (error: Error) => void): void;
+    abstract unexport(): void;
+  }  
 }

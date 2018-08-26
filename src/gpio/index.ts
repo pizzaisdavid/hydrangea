@@ -1,4 +1,4 @@
 
 export * from './Gpio';
-export * from './FileSystem';
-export * from './FileSystem.mock';
+export * from './File';
+export * from './File.mock';

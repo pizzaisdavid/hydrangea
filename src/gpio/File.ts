@@ -3,7 +3,7 @@ import { Gpio } from './Gpio';
 
 import { Gpio as Onoff } from 'onoff';
 
-export class FileSystem implements Gpio {
+export class File implements Gpio.Stream {
 
   private onoff: Onoff;
 

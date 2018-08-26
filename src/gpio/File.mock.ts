@@ -1,11 +1,15 @@
 
 import { Gpio } from './Gpio';
 
-export class MockFileSystem implements Gpio {
+export class FileMock extends Gpio.Stream {
 
   private buffer: number[];
 
   constructor() {
+    super({
+      id: -1,
+      direction: Gpio.direction.high,
+    });
     this.buffer = [];
   }
 
