@@ -1,5 +1,5 @@
 
-import { Subscription } from "rxjs/internal/Subscription";
+import { Subscription } from 'rxjs';
 
 export { Subscription }
 

@@ -1,4 +1,3 @@
 
-export * from './pintail';
-export * from './Pin';
-export * from './Pint';
+export * from './Pintail';
+export * from './Pintail.mock';
