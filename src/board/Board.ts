@@ -1,8 +1,6 @@
 
 import { Pin } from '../pin';
 
-export { Pin };
-
 export enum direction {
   in = 'in',
   out = 'out',
