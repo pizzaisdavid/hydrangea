@@ -1,5 +1,5 @@
 
-import { Pin } from './Pin';
+import { Pin, Subscription } from './Pin';
 import { System } from '../system';
 
 import { Subject } from 'rxjs';
@@ -48,7 +48,7 @@ export class Gpio extends Pin {
     onNext: (value: boolean) => void,
     onError?: (error: Error) => void,
     onComplete?: () => void,
-  ) {
+  ): Subscription {
     return this.subject.subscribe(onNext, onError, onComplete);
   }
 
