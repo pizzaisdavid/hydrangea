@@ -1,12 +1,9 @@
 
-import { System } from '../system'
-
 import { Subscription } from 'rxjs';
 
 export { Subscription };
 
 export abstract class Pin {
-  constructor(system: System.Stream) {}
   abstract read(): Promise<boolean>;
   abstract write(value: boolean): Promise<void>;
   abstract subscribe(

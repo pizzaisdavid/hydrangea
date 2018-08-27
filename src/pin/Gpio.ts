@@ -9,7 +9,7 @@ export class Gpio extends Pin {
   private subject: Subject<boolean>;
 
   constructor(private system: System.Stream) {
-    super(system);
+    super();
     this.subject = new Subject();
     this.system.watch((error, bit) => {
       if (error) {
