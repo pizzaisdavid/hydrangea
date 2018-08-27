@@ -1,13 +1,16 @@
 
+import { Gpio } from '../gpio'
+
 import { Subscription } from 'rxjs';
 
-export interface Pin {
-  read(): Promise<boolean>;
-  write(value: boolean): Promise<void>;
-  subscribe(
+export abstract class Pin {
+  constructor(gpio: Gpio.Stream) {}
+  abstract read(): Promise<boolean>;
+  abstract write(value: boolean): Promise<void>;
+  abstract subscribe(
     onNext: (value: boolean) => void,
     onError?: (error: Error) => void,
     onComplete?: () => void
   ): Subscription;
-  unexport(): void;
+  abstract unexport(): void;
 }

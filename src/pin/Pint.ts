@@ -1,14 +1,15 @@
 
 import { Pin } from './Pin';
+import { Gpio } from '../gpio';
 
-import { Gpio } from 'onoff';
 import { Subject } from 'rxjs';
 
-export class Pint implements Pin {
+export class Pint extends Pin {
 
   private subject: Subject<boolean>;
 
-  constructor(private gpio: Gpio) {
+  constructor(private gpio: Gpio.Stream) {
+    super(gpio);
     this.subject = new Subject();
     this.gpio.watch((error, bit) => {
       if (error) {
