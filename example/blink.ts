@@ -4,7 +4,7 @@ import { Pintail } from '../src';
 const board = new Pintail();
 const pin = board.createPin({
   id: 0,
-  direction: Pintail.gpio.direction.in,
+  direction: Pintail.direction.in,
 });
 
 pin.write(true)

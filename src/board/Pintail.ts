@@ -2,11 +2,11 @@
 import { Board } from './Board';
 import { Pint } from '../pin';
 
-import { File, Gpio } from '../gpio';
+import { File, System } from '../system';
 
 export class Pintail extends Board {
 
-  createPin(configuration: Gpio.configuration) {
+  createPin(configuration: System.configuration) {
     const file = new File(configuration);
     return new Pint(file);
   }

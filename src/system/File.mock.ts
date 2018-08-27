@@ -1,14 +1,14 @@
 
-import { Gpio } from './Gpio';
+import { System } from './System';
 
-export class FileMock extends Gpio.Stream {
+export class FileMock extends System.Stream {
 
   private buffer: number[];
 
   constructor() {
     super({
       id: -1,
-      direction: Gpio.direction.high,
+      direction: System.direction.high,
     });
     this.buffer = [];
   }

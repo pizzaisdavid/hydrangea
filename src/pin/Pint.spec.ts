@@ -1,6 +1,6 @@
 
 import { Pint } from './Pint';
-import { FileMock } from '../gpio';
+import { FileMock } from '../system';
 
 import { expect } from 'chai';
 

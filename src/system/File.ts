@@ -1,9 +1,9 @@
 
-import { Gpio } from './Gpio';
+import { System } from './System';
 
 import { Gpio as Onoff } from 'onoff';
 
-export class File implements Gpio.Stream {
+export class File implements System.Stream {
 
   private onoff: Onoff;
 

@@ -1,6 +1,6 @@
 
 import { Pin } from './Pin';
-import { Gpio } from '../gpio';
+import { System } from '../system';
 
 import { Subject } from 'rxjs';
 
@@ -8,10 +8,10 @@ export class Pint extends Pin {
 
   private subject: Subject<boolean>;
 
-  constructor(private gpio: Gpio.Stream) {
-    super(gpio);
+  constructor(private system: System.Stream) {
+    super(system);
     this.subject = new Subject();
-    this.gpio.watch((error, bit) => {
+    this.system.watch((error, bit) => {
       if (error) {
         this.subject.error(error);
       } else {
@@ -22,7 +22,7 @@ export class Pint extends Pin {
 
   read(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.gpio.read((error, bit) => {
+      this.system.read((error, bit) => {
         if (error) {
           reject(error);
         } else {
@@ -34,7 +34,7 @@ export class Pint extends Pin {
 
   write(value: boolean): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.gpio.write(convertBooleanToBit(value), (error) => {
+      this.system.write(convertBooleanToBit(value), (error) => {
         if (error) {
           reject(error);
         } else {
@@ -54,7 +54,7 @@ export class Pint extends Pin {
 
   unexport() {
     this.subject.complete();
-    this.gpio.unexport();
+    this.system.unexport();
   }
 
 }

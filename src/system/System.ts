@@ -1,5 +1,5 @@
 
-export namespace Gpio {
+export namespace System {
 
   export interface configuration {
     id: number;

@@ -1,9 +1,10 @@
 
 import { Pin } from '../pin';
-import { Gpio } from '../gpio';
+import { System } from '../system';
 
 export abstract class Board {
-  static gpio = Gpio;
+  static direction = System.direction;
+  static edge = System.edge;
   
-  abstract createPin(pin: Gpio.configuration): Pin;
+  abstract createPin(pin: System.configuration): Pin;
 }
