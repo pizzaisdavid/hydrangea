@@ -1,30 +1,9 @@
 
 import { Pin } from '../pin';
-
-export enum direction {
-  in = 'in',
-  out = 'out',
-  low = 'low',
-  high = 'high',
-};
-
-export enum edge {
-  none = 'none',
-  rising = 'rising',
-  falling = 'falling',
-  both = 'both',
-};
-
-export interface PinConfiguration {
-  id: number;
-  direction: direction;
-  address?: number;
-  edge?: edge;
-}
+import { Gpio } from '../gpio';
 
 export abstract class Board {
-  static direction = direction;
-  static edge = edge;
+  static gpio = Gpio;
   
-  abstract createPin(pin: PinConfiguration): Pin;
+  abstract createPin(pin: Gpio.configuration): Pin;
 }
