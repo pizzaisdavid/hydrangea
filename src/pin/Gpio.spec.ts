@@ -16,16 +16,22 @@ describe('Gpio', () => {
 
   describe('read', () => {
 
-    it('true', () => {
+    it('success', () => {
       system.push(1);
       return gpio.read()
         .then(value => expect(value).to.equal(true));
     });
 
-    it('false', () => {
-      system.push(0);
-      return gpio.read()
-        .then(value => expect(value).to.equal(false));
+  });
+
+  describe('write', () => {
+
+    it('success', () => {
+      return gpio.write(true)
+        .then(() => {
+          const value = system.shift();
+          expect(value).to.equal(1);
+        });  
     });
 
   });

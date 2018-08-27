@@ -17,15 +17,20 @@ export class FileMock extends System.Stream {
     this.buffer.push(value);
   }
 
+  shift() {
+    return this.buffer.shift();
+  }
+
   watch(callback: (error: Error, value: number) => void) {
   }
 
   read(callback: (error: Error, value: number) => void): void {
-    const value = this.buffer.shift();
-    callback(null, value);
+    callback(null, this.shift());
   }
 
   write(value: number, callback: (error: Error) => void): void {
+    this.push(value);
+    callback(null);
   }
 
   unexport(): void {
