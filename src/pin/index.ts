@@ -1,3 +1,3 @@
 
 export * from './Pin';
-export * from './Pint';
+export * from './Gpio';

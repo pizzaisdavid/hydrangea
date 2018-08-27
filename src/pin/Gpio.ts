@@ -4,7 +4,7 @@ import { System } from '../system';
 
 import { Subject } from 'rxjs';
 
-export class Pint extends Pin {
+export class Gpio extends Pin {
 
   private subject: Subject<boolean>;
 
@@ -57,6 +57,9 @@ export class Pint extends Pin {
     this.system.unexport();
   }
 
+  test() {
+    
+  }
 }
 
 function convertBitToBoolean(value: number): boolean {
