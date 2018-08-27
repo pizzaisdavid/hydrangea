@@ -1,34 +1,37 @@
 
 import { Pint } from './Pint';
+import { FileMock } from '../gpio';
 
 import { expect } from 'chai';
-import { Gpio } from 'onoff';
 
 describe('Pint', () => {
 
-  let gpio: Gpio;
-  let pin: Pint;
+  let file: FileMock;
+  let pint: Pint;
 
   beforeEach(() => {
-    gpio = {} as any;
-
-    gpio.watch = (callback: (error: Error, value: number) => void) => {
-
-    }
-
-    pin = new Pint(gpio);
+    file = new FileMock();
+    pint = new Pint(file);
   });
 
-  it('read true', () => {
+  describe('read', () => {
 
-    gpio.read = (callback: (error: Error, value: number) => void) => {
-      callback(null, 1);
-    }
+    it('true', () => {
+      file.push(1);
+      return pint.read()
+        .then(value => {
+          expect(value).to.equal(true);
+        });
+    });
 
-    return pin.read()
-      .then(value => {
-        expect(value).to.equal(true);
-      });
+    it('false', () => {
+      file.push(0);
+      return pint.read()
+        .then(value => {
+          expect(value).to.equal(false);
+        });
+    });
+
   });
   
 });
