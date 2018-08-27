@@ -56,10 +56,6 @@ export class Gpio extends Pin {
     this.subject.complete();
     this.system.unexport();
   }
-
-  test() {
-    
-  }
 }
 
 function convertBitToBoolean(value: number): boolean {

@@ -4,6 +4,7 @@ import { System } from './System';
 export class FileMock extends System.Stream {
 
   private buffer: number[];
+  private watchers: ((error: Error, value: number) => void)[];
 
   constructor() {
     super({
@@ -11,10 +12,14 @@ export class FileMock extends System.Stream {
       direction: System.direction.high,
     });
     this.buffer = [];
+    this.watchers = [];
   }
 
   push(value: number) {
     this.buffer.push(value);
+    this.watchers.forEach(watcher => {
+      watcher(null, value);
+    })
   }
 
   shift() {
@@ -22,6 +27,7 @@ export class FileMock extends System.Stream {
   }
 
   watch(callback: (error: Error, value: number) => void) {
+    this.watchers.push(callback);
   }
 
   read(callback: (error: Error, value: number) => void): void {
@@ -29,6 +35,9 @@ export class FileMock extends System.Stream {
   }
 
   write(value: number, callback: (error: Error) => void): void {
+    /* TODO
+    Determine if calling "write" should call all the "watchers."
+    */
     this.push(value);
     callback(null);
   }

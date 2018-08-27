@@ -35,5 +35,26 @@ describe('Gpio', () => {
     });
 
   });
+
+  describe('subscribe', () => {
+
+    it('success', (done) => {
+      gpio.subscribe(value => {
+        expect(value).to.equal(true);
+        done();
+      });
+      system.push(1);
+    });
+
+    it('onComplete on unexport', (done) => {
+      gpio.subscribe(
+        () => {},
+        () => {},
+        done
+      );
+      gpio.unexport();
+    });
+
+  });
   
 });
