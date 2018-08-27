@@ -1,10 +1,10 @@
 
-import { Pintail } from '../src';
+import { Hydrangea } from '../src';
 
-const board = new Pintail();
+const board = new Hydrangea();
 const pin = board.createPin({
   id: 0,
-  direction: Pintail.direction.in,
+  direction: Hydrangea.direction.in,
 });
 
 pin.write(true)

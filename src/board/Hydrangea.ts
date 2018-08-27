@@ -4,7 +4,7 @@ import { Gpio } from '../pin';
 
 import { File, System } from '../system';
 
-export class Pintail extends Board {
+export class Hydrangea extends Board {
 
   createPin(configuration: System.configuration) {
     const file = new File(configuration);
