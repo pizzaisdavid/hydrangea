@@ -11,15 +11,15 @@ export class File implements System.Stream {
     this.onoff = new Onoff(configuration.id, configuration.direction);
   }
 
-  watch(callback: (error: Error, value: number) => void) {
+  watch(callback: System.Callback<System.Binary>) {
     this.onoff.watch(callback);
   }
 
-  read(callback: (error: Error, value: number) => void): void {
+  read(callback: System.Callback<System.Binary>): void {
     this.onoff.read(callback);
   }
 
-  write(value: number, callback: (error: Error) => void): void {
+  write(value: System.Binary, callback: System.Callback<void>): void {
     this.onoff.write(value, callback);
   }
 

@@ -26,11 +26,13 @@ export namespace System {
     (error: any, value?: T): void;
   }
 
+  export type Binary = 0 | 1;
+
   export abstract class Stream {
     constructor(configuration: Configuration) {}
-    abstract watch(callback: Callback<number>): void;
-    abstract read(callback: Callback<number>): void;
-    abstract write(value: number, callback: Callback<void>): void;
+    abstract watch(callback: Callback<Binary>): void;
+    abstract read(callback: Callback<Binary>): void;
+    abstract write(value: Binary, callback: Callback<void>): void;
     abstract unexport(): void;
   }  
 }
