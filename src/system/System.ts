@@ -29,7 +29,7 @@ export namespace System {
   export type Binary = 0 | 1;
 
   export abstract class Stream {
-    constructor(configuration: Configuration) {}
+    constructor(protected configuration: Configuration) {}
     abstract watch(callback: Callback<Binary>): void;
     abstract read(callback: Callback<Binary>): void;
     abstract write(value: Binary, callback: Callback<void>): void;
