@@ -58,10 +58,10 @@ export class Gpio extends Pin {
   }
 }
 
-function convertBitToBoolean(value: number): boolean {
+function convertBitToBoolean(value: System.Binary): boolean {
   return Boolean(value);
 }
 
-function convertBooleanToBit(value: boolean): number {
-  return Number(value);
+function convertBooleanToBit(value: boolean): System.Binary {
+  return value ? 1 : 0;
 }
