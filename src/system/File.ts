@@ -7,7 +7,7 @@ export class File implements System.Stream {
 
   private onoff: Onoff;
 
-  constructor(configuration: System.configuration) {
+  constructor(configuration: System.Configuration) {
     this.onoff = new Onoff(configuration.id, configuration.direction);
   }
 

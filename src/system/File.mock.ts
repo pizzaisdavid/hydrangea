@@ -9,7 +9,7 @@ export class FileMock extends System.Stream {
   constructor() {
     super({
       id: -1,
-      direction: System.direction.high,
+      direction: System.Direction.High,
     });
     this.buffer = [];
     this.watchers = [];
