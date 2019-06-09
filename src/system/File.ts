@@ -3,11 +3,12 @@ import { System } from './System';
 
 import { Gpio as Onoff } from 'onoff';
 
-export class File implements System.Stream {
+export class File extends System.Stream {
 
   private onoff: Onoff;
 
   constructor(configuration: System.Configuration) {
+    super(configuration);
     this.onoff = new Onoff(configuration.id, configuration.direction);
   }
 
