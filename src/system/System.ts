@@ -22,11 +22,15 @@ export namespace System {
     Both = 'both',
   }
 
+  export interface Callback<T = void> {
+    (error: any, value?: T): void;
+  }
+
   export abstract class Stream {
     constructor(configuration: Configuration) {}
-    abstract watch(callback: (error: Error, value: number) => void): void;
-    abstract read(callback: (error: Error, value: number) => void): void;
-    abstract write(value: number, callback: (error: Error) => void): void;
+    abstract watch(callback: Callback<number>): void;
+    abstract read(callback: Callback<number>): void;
+    abstract write(value: number, callback: Callback<void>): void;
     abstract unexport(): void;
   }  
 }
