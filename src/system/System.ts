@@ -22,7 +22,7 @@ export namespace System {
     Both = 'both',
   }
 
-  export enum Signal {
+  export enum Binary {
     High = 1,
     Low = 0
   }
@@ -30,8 +30,6 @@ export namespace System {
   export interface Callback<T = void> {
     (error: any, value?: T): void;
   }
-
-  export type Binary = 0 | 1;
 
   export abstract class Stream {
 

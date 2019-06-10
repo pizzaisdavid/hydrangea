@@ -3,7 +3,7 @@ import { System } from './System';
 
 export class FileMock extends System.Stream {
 
-  public static Signal = System.Signal;
+  public static Signal = System.Binary;
 
   private buffer: System.Binary[];
   private watchers: System.Callback<System.Binary>[];
