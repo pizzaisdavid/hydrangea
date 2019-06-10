@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 export { Subscription };
 
 export abstract class Pin {
+
   abstract read(): Promise<boolean>;
   abstract write(value: boolean): Promise<void>;
   abstract subscribe(
@@ -12,4 +13,5 @@ export abstract class Pin {
     onComplete?: () => void
   ): Subscription;
   abstract unexport(): void;
+
 }
