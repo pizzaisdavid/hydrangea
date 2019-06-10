@@ -16,7 +16,7 @@ describe('Gpio', () => {
 
   describe('read', () => {
 
-    it('success', () => {
+    it('should succeed', () => {
       system.push(1);
       return gpio.read()
         .then(value => expect(value).to.equal(true));
@@ -26,7 +26,7 @@ describe('Gpio', () => {
 
   describe('write', () => {
 
-    it('success', () => {
+    it('should succeed', () => {
       return gpio.write(true)
         .then(() => {
           const value = system.shift();
@@ -38,7 +38,7 @@ describe('Gpio', () => {
 
   describe('subscribe', () => {
 
-    it('success', (done) => {
+    it('should be notified of new value', (done) => {
       gpio.subscribe(value => {
         expect(value).to.equal(true);
         done();
@@ -46,7 +46,7 @@ describe('Gpio', () => {
       gpio.write(true);
     });
 
-    it('onComplete on unexport', (done) => {
+    it('should call onComplete when a gpio is unexported', (done) => {
       gpio.subscribe(
         () => {},
         () => {},
