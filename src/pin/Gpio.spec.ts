@@ -43,7 +43,7 @@ describe('Gpio', () => {
         expect(value).to.equal(true);
         done();
       });
-      system.push(1);
+      gpio.write(true);
     });
 
     it('onComplete on unexport', (done) => {
@@ -56,5 +56,5 @@ describe('Gpio', () => {
     });
 
   });
-  
+
 });
