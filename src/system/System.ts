@@ -22,6 +22,11 @@ export namespace System {
     Both = 'both',
   }
 
+  export enum Signal {
+    High = 1,
+    Low = 0
+  }
+
   export interface Callback<T = void> {
     (error: any, value?: T): void;
   }

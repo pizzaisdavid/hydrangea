@@ -17,7 +17,7 @@ describe('Gpio', () => {
   describe('read', () => {
 
     it('should succeed', () => {
-      system.push(1);
+      system.push(FileMock.Signal.High);
       return gpio.read()
         .then((value) => expect(value).to.equal(true));
     });
@@ -29,8 +29,7 @@ describe('Gpio', () => {
     it('should succeed', () => {
       return gpio.write(true)
         .then(() => {
-          const value = system.shift();
-          expect(value).to.equal(1);
+          expect(system.shift()).to.equal(FileMock.Signal.High);
         });
     });
 
