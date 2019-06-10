@@ -2,6 +2,7 @@
 import { Hydrangea } from '../src';
 
 const board = new Hydrangea();
+
 const pin = board.createPin({
   id: 0,
   direction: Hydrangea.Direction.In,
