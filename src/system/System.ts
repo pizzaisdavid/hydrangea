@@ -24,20 +24,18 @@ export namespace System {
 
   export enum Binary {
     High = 1,
-    Low = 0
+    Low = 0,
   }
 
-  export interface Callback<T = void> {
-    (error: any, value?: T): void;
-  }
+  export type Callback<T = void> = (error: any, value?: T) => void;
 
   export abstract class Stream {
 
     constructor(protected configuration: Configuration) {}
-    abstract watch(callback: Callback<Binary>): void;
-    abstract read(callback: Callback<Binary>): void;
-    abstract write(value: Binary, callback: Callback<void>): void;
-    abstract unexport(): void;
+    public abstract watch(callback: Callback<Binary>): void;
+    public abstract read(callback: Callback<Binary>): void;
+    public abstract write(value: Binary, callback: Callback<void>): void;
+    public abstract unexport(): void;
 
   }
 

@@ -1,0 +1,10 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "rules": {
+    "interface-name": [true, "never-prefix"],
+    "no-empty": [true, "allow-empty-functions"],
+    "no-namespace": [false, "allow-declarations"],
+    "quotemark": [true, "single"]
+  }
+}

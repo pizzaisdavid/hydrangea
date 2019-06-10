@@ -5,13 +5,13 @@ export { Subscription };
 
 export abstract class Pin {
 
-  abstract read(): Promise<boolean>;
-  abstract write(value: boolean): Promise<void>;
-  abstract subscribe(
+  public abstract read(): Promise<boolean>;
+  public abstract write(value: boolean): Promise<void>;
+  public abstract subscribe(
     onNext: (value: boolean) => void,
     onError?: (error: Error) => void,
-    onComplete?: () => void
+    onComplete?: () => void,
   ): Subscription;
-  abstract unexport(): void;
+  public abstract unexport(): void;
 
 }

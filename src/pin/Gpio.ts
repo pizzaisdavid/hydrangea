@@ -1,6 +1,6 @@
 
-import { Pin, Subscription } from './Pin';
 import { System } from '../system';
+import { Pin, Subscription } from './Pin';
 
 import { Subject } from 'rxjs';
 
@@ -20,7 +20,7 @@ export class Gpio extends Pin {
     });
   }
 
-  read(): Promise<boolean> {
+  public read(): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.system.read((error, bit) => {
         if (error) {
@@ -32,7 +32,7 @@ export class Gpio extends Pin {
     });
   }
 
-  write(value: boolean): Promise<void> {
+  public write(value: boolean): Promise<void> {
     return new Promise((resolve, reject) => {
       this.system.write(convertBooleanToBit(value), (error) => {
         if (error) {
@@ -44,7 +44,7 @@ export class Gpio extends Pin {
     });
   }
 
-  subscribe(
+  public subscribe(
     onNext: (value: boolean) => void,
     onError?: (error: Error) => void,
     onComplete?: () => void,
@@ -52,7 +52,7 @@ export class Gpio extends Pin {
     return this.subject.subscribe(onNext, onError, onComplete);
   }
 
-  unexport() {
+  public unexport() {
     this.subject.complete();
     this.system.unexport();
   }

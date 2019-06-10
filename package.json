@@ -9,7 +9,8 @@
     "prepare": "npm run build",
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "test": "ts-mocha -p ./ src/**/*.spec.ts"
+    "test": "ts-mocha -p ./ src/**/*.spec.ts",
+    "lint": "tslint --project ./tsconfig.json"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "nodemon": "^1.18.3",
     "ts-mocha": "^1.2.0",
     "ts-node": "3.3.0",
+    "tslint": "^5.17.0",
     "typescript": "2.5.2"
   }
 }

@@ -6,37 +6,37 @@ export class FileMock extends System.Stream {
   public static Signal = System.Binary;
 
   private buffer: System.Binary[];
-  private watchers: System.Callback<System.Binary>[];
+  private watchers: Array<System.Callback<System.Binary>>;
 
   constructor() {
     super({
-      id: -1,
       direction: System.Direction.High,
+      id: -1,
     });
     this.buffer = [];
     this.watchers = [];
   }
 
-  push(value: System.Binary): void {
+  public push(value: System.Binary): void {
     this.buffer.push(value);
     this.watchers.forEach((watcher) => {
       watcher(null, value);
     });
   }
 
-  shift(): System.Binary {
+  public shift(): System.Binary {
     return this.buffer.shift();
   }
 
-  watch(callback: System.Callback<System.Binary>) {
+  public watch(callback: System.Callback<System.Binary>) {
     this.watchers.push(callback);
   }
 
-  read(callback: System.Callback<System.Binary>): void {
+  public read(callback: System.Callback<System.Binary>): void {
     callback(null, this.shift());
   }
 
-  write(value: System.Binary, callback: System.Callback<void>): void {
+  public write(value: System.Binary, callback: System.Callback<void>): void {
     /* TODO
     Determine if calling "write" should call all the "watchers."
     */
@@ -44,6 +44,6 @@ export class FileMock extends System.Stream {
     callback(null);
   }
 
-  unexport(): void {}
+  public unexport(): void {}
 
 }
