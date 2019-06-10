@@ -17,14 +17,14 @@ export class FileMock extends System.Stream {
     this.watchers = [];
   }
 
-  push(value: System.Binary) {
+  push(value: System.Binary): void {
     this.buffer.push(value);
     this.watchers.forEach((watcher) => {
       watcher(null, value);
     });
   }
 
-  shift() {
+  shift(): System.Binary {
     return this.buffer.shift();
   }
 
