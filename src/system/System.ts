@@ -7,7 +7,7 @@ export namespace System {
     address?: number;
     edge?: Edge;
   }
-  
+
   export enum Direction {
     In = 'in',
     Out = 'out',
@@ -34,5 +34,6 @@ export namespace System {
     abstract read(callback: Callback<Binary>): void;
     abstract write(value: Binary, callback: Callback<void>): void;
     abstract unexport(): void;
-  }  
+  }
+
 }

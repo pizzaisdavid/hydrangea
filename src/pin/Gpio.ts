@@ -56,6 +56,7 @@ export class Gpio extends Pin {
     this.subject.complete();
     this.system.unexport();
   }
+
 }
 
 function convertBitToBoolean(value: System.Binary): boolean {

@@ -31,7 +31,7 @@ describe('Gpio', () => {
         .then(() => {
           const value = system.shift();
           expect(value).to.equal(1);
-        });  
+        });
     });
 
   });

@@ -41,7 +41,6 @@ export class GpioMock extends Pin {
     return this.subject.subscribe(onNext, onError, onComplete);
   }
 
-  unexport() {
+  unexport() {}
 
-  }
 }

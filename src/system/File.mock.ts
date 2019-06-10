@@ -42,7 +42,6 @@ export class FileMock extends System.Stream {
     callback(null);
   }
 
-  unexport(): void {
-  }
+  unexport(): void {}
 
 }
