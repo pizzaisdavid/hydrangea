@@ -37,21 +37,29 @@ describe('Gpio', () => {
 
   describe('subscribe', () => {
 
-    it('should be notified of new value', (done) => {
-      gpio.subscribe((value) => {
-        expect(value).to.equal(true);
-        done();
+    it('should be notified of new value', () => {
+      return new Promise((resolve) => {
+
+        gpio.subscribe((value) => {
+          expect(value).to.equal(true);
+          resolve();
+        });
+
+        gpio.write(true);
       });
-      gpio.write(true);
     });
 
-    it('should call onComplete when a gpio is unexported', (done) => {
-      gpio.subscribe(
-        () => {},
-        () => {},
-        done
-      );
-      gpio.unexport();
+    it('should call onComplete when a gpio is unexported', () => {
+      return new Promise((resolve) => {
+
+        gpio.subscribe(
+          () => {},
+          () => {},
+          resolve
+        );
+
+        gpio.unexport();
+      });
     });
 
   });
