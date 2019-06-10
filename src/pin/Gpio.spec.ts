@@ -19,7 +19,9 @@ describe('Gpio', () => {
     it('should succeed', () => {
       system.push(FileMock.Signal.High);
       return gpio.read()
-        .then((value) => expect(value).to.equal(true));
+        .then((value) => {
+          expect(value).to.equal(true);
+        });
     });
 
   });
