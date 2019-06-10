@@ -17,9 +17,9 @@ export class FileMock extends System.Stream {
 
   push(value: System.Binary) {
     this.buffer.push(value);
-    this.watchers.forEach(watcher => {
+    this.watchers.forEach((watcher) => {
       watcher(null, value);
-    })
+    });
   }
 
   shift() {

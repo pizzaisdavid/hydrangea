@@ -19,7 +19,7 @@ describe('Gpio', () => {
     it('should succeed', () => {
       system.push(1);
       return gpio.read()
-        .then(value => expect(value).to.equal(true));
+        .then((value) => expect(value).to.equal(true));
     });
 
   });
@@ -39,7 +39,7 @@ describe('Gpio', () => {
   describe('subscribe', () => {
 
     it('should be notified of new value', (done) => {
-      gpio.subscribe(value => {
+      gpio.subscribe((value) => {
         expect(value).to.equal(true);
         done();
       });
