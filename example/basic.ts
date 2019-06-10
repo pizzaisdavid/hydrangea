@@ -10,4 +10,4 @@ const pin = board.createPin({
 
 pin.write(true)
   .then(() => console.log('success'))
-  .catch((error) => console.error(error));
+  .catch(console.error);
