@@ -7,10 +7,7 @@ export class FileMock extends System.Stream {
   private watchers: Array<System.Callback<System.Binary>>;
 
   constructor() {
-    super({
-      direction: System.Direction.High,
-      id: -1,
-    });
+    super();
     this.buffer = [];
     this.watchers = [];
   }

@@ -31,7 +31,6 @@ export namespace System {
 
   export abstract class Stream {
 
-    constructor(protected configuration: Configuration) {}
     public abstract watch(callback: Callback<Binary>): void;
     public abstract read(callback: Callback<Binary>): void;
     public abstract write(value: Binary, callback: Callback<void>): void;
