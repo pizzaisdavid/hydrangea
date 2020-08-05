@@ -1,6 +1,6 @@
 
 import { Gpio } from './Gpio';
-import { FileMock } from '../system';
+import { FileMock, System } from '../system';
 
 import { expect } from 'chai';
 
@@ -17,7 +17,7 @@ describe('Gpio', () => {
   describe('read', () => {
 
     it('should succeed', () => {
-      system.push(FileMock.Signal.High);
+      system.push(System.Binary.High);
       return gpio.read()
         .then((value) => {
           expect(value).to.equal(true);
@@ -31,7 +31,7 @@ describe('Gpio', () => {
     it('should succeed', () => {
       return gpio.write(true)
         .then(() => {
-          expect(system.shift()).to.equal(FileMock.Signal.High);
+          expect(system.shift()).to.equal(System.Binary.High);
         });
     });
 
