@@ -3,16 +3,11 @@ import { System } from './System';
 
 export class FileMock extends System.Stream {
 
-  public static Signal = System.Binary;
-
   private buffer: System.Binary[];
   private watchers: Array<System.Callback<System.Binary>>;
 
   constructor() {
-    super({
-      direction: System.Direction.High,
-      id: -1,
-    });
+    super();
     this.buffer = [];
     this.watchers = [];
   }

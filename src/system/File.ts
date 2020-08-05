@@ -8,7 +8,7 @@ export class File extends System.Stream {
   private onoff: Onoff;
 
   constructor(configuration: System.Configuration) {
-    super(configuration);
+    super();
     this.onoff = new Onoff(configuration.id, configuration.direction);
   }
 
