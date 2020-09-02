@@ -12,19 +12,19 @@ export class Led implements Light {
     // TODO: this state could actually be wrong.
   }
 
-  toggle(): Promise<void> {
+  public toggle(): Promise<void> {
     return this.update(!this.state);
   }
 
-  on(): Promise<void> {
+  public on(): Promise<void> {
     return this.update(true);
   }
 
-  off(): Promise<void> {
+  public off(): Promise<void> {
     return this.update(false);
   }
 
-  update(value: boolean): Promise<void> {
+  public update(value: boolean): Promise<void> {
     this.state = value;
     return this.pin.write(value);
   }

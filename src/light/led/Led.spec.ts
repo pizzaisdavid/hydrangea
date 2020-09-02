@@ -1,6 +1,6 @@
 
-import { Led } from './Led';
 import { GpioMock } from '../../pin';
+import { Led } from './Led';
 
 import { expect } from 'chai';
 

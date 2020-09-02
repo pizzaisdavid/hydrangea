@@ -1,4 +1,5 @@
 import { Pin } from './Pin';
+
 import { Subscription } from 'rxjs';
 
 export class GpioMock extends Pin {
@@ -11,7 +12,7 @@ export class GpioMock extends Pin {
     }
 
     public read(): Promise<boolean> {
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 
     public write(value: boolean): Promise<void> {
@@ -19,12 +20,16 @@ export class GpioMock extends Pin {
         return Promise.resolve();
     }
 
-    public subscribe(onNext: (value: boolean) => void, onError?: (error: Error) => void, onComplete?: () => void): Subscription {
-        throw new Error("Method not implemented.");
+    public subscribe(
+        onNext: (value: boolean) => void,
+        onError?: (error: Error) => void,
+        onComplete?: () => void,
+    ): Subscription {
+        throw new Error('Method not implemented.');
     }
 
     public unexport(): void {
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 
     public shift() {

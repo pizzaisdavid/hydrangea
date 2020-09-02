@@ -1,6 +1,6 @@
 
-import { Gpio } from './Gpio';
 import { FileMock, System } from '../system';
+import { Gpio } from './Gpio';
 
 import { expect } from 'chai';
 
@@ -57,7 +57,7 @@ describe('Gpio', () => {
         gpio.subscribe(
           () => {},
           () => {},
-          resolve
+          resolve,
         );
 
         gpio.unexport();
