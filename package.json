@@ -9,7 +9,8 @@
     "prepare": "npm run build",
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "test": "ts-mocha -p ./ src/**/*.spec.ts",
+    "pretest": "npm run build",
+    "test": "mocha 'dist/**/*.spec.js'",
     "lint": "tslint --project ./tsconfig.json"
   },
   "author": "",
