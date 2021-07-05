@@ -1,7 +1,6 @@
 
 import { Gpio } from '../pin';
 import { Board } from './Board';
-
 import { File, System } from '../system';
 
 export class Hydrangea extends Board {
