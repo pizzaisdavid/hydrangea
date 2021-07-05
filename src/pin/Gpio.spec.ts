@@ -40,7 +40,7 @@ describe('Gpio', () => {
   describe('subscribe', () => {
 
     it('should be notified of new value', () => {
-      return new Promise((resolve) => {
+      return new Promise<void>((resolve) => {
 
         gpio.subscribe((value) => {
           expect(value).to.equal(true);
@@ -52,7 +52,7 @@ describe('Gpio', () => {
     });
 
     it('should call onComplete when a gpio is unexported', () => {
-      return new Promise((resolve) => {
+      return new Promise<void>((resolve) => {
 
         gpio.subscribe(
           () => {},
