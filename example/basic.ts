@@ -1,11 +1,14 @@
 
-import { Hydrangea } from '../src';
+import {
+  System,
+  Hydrangea
+} from '../src';
 
 const board = new Hydrangea();
 
 const pin = board.createPin({
   id: 0,
-  direction: Hydrangea.Direction.In,
+  direction: System.Direction.In,
 });
 
 pin.write(true)

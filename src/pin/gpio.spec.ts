@@ -1,5 +1,5 @@
 
-import { Gpio } from './Gpio';
+import { Gpio } from './gpio';
 import { FileMock, System } from '../system';
 
 import { expect } from 'chai';
