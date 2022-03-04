@@ -1,6 +1,6 @@
 
-import { System } from '../system';
-import { Pin, Subscription } from './Pin';
+import { System } from '..';
+import { Pin, Subscription } from './pin';
 
 import { Subject } from 'rxjs';
 

@@ -1,4 +1,4 @@
 
-export * from './System';
-export * from './File';
-export * from './File.mock';
+export * from './system';
+export * from './file';
+export * from './file.mock';

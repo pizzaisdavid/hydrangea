@@ -1,5 +1,5 @@
 
-import { System } from './System';
+import { System } from './system';
 
 export class FileMock extends System.Stream {
 

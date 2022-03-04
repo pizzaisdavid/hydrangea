@@ -1,5 +1,5 @@
 
-import { System } from './System';
+import { System } from './system';
 
 import { Gpio as Onoff } from 'onoff';
 

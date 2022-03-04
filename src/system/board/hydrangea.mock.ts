@@ -1,7 +1,7 @@
 
 import { Gpio } from '../pin';
-import { Board } from './Board';
-import { FileMock, System } from '../system';
+import { Board } from './board';
+import { FileMock, System } from '..';
 
 export class HydrangeaMock extends Board {
 
