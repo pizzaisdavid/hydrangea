@@ -1,4 +1,4 @@
 
-export * from './board';
-export * from './pin';
+export * from './system/board';
+export * from './system/pin';
 export * from './system';

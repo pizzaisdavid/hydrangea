@@ -1,6 +1,6 @@
 
 import { Pin } from '../pin';
-import { System } from '../system';
+import { System } from '..';
 
 export abstract class Board {
 
