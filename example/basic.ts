@@ -11,6 +11,11 @@ const pin = board.createPin({
   direction: System.Direction.In,
 });
 
+pin.subscribe(
+  (value) => console.log(value),
+  (error) => console.log(error)
+);
+
 pin.write(true)
   .then(() => console.log('success'))
   .catch(console.error);
