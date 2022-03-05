@@ -1,6 +1,10 @@
 
 export namespace System {
 
+  export interface Configuration_v2 {
+    pin: number;
+  }
+
   export interface Configuration {
     id: number;
     direction: Direction;

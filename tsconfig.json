@@ -10,7 +10,13 @@
     "noImplicitAny": true,
     "declaration": true,
     "sourceMap": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/components": ["./src/components/index.ts"],
+      "@/components/*": ["./src/components/*"],
+      "@/system": ["./src/system/index.ts"],
+      "@/system/*": ["./src/system/*"]
+    }
   },
   "exclude": [
     "node_modules",

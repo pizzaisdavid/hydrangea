@@ -1,5 +1,5 @@
 import { Light } from '../light';
-import { Pin } from '../../system/pin';
+import { Pin } from '../../../system/pin';
 
 export class Led implements Light {
 
