@@ -15,7 +15,8 @@
       "@/components": ["./src/components/index.ts"],
       "@/components/*": ["./src/components/*"],
       "@/system": ["./src/system/index.ts"],
-      "@/system/*": ["./src/system/*"]
+      "@/system/*": ["./src/system/*"],
+      "@/utility": ["./src/utility.ts"]
     }
   },
   "exclude": [

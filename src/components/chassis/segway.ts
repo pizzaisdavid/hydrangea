@@ -4,6 +4,10 @@ import {
   Motor
 } from '@/components'
 
+import {
+  Utility
+} from '@/utility'
+
 export namespace Segway {
 
   export interface Options {
@@ -35,12 +39,20 @@ export namespace Segway {
       this.right = right
     }
 
-    turn(degree: number): Promise<void> {
-      throw new Error('Method not implemented.')
+    async turn(duration: number): Promise<void> {
+      await Promise.all([
+        this.left.forward(),
+        this.right.forward()
+      ])
+      await Utility.Sleep.until(duration)
+      await this.stop()
     }
 
-    forward(): Promise<void> {
-      throw new Error('Method not implemented.')
+    async forward(): Promise<void> {
+      await Promise.all([
+        this.left.forward(),
+        this.right.reverse()
+      ])
     }
 
     async stop(): Promise<void> {

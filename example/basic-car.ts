@@ -8,6 +8,10 @@ import {
   Segway
 } from './../src/components'
 
+import {
+  Utility
+} from './../src/utility'
+
 const board = new Hydrangea()
 
 const sensor = UltrasonicSensor.from(board, { pin: 4 })
@@ -19,7 +23,11 @@ const chassis = Segway.from({
 sensor.subscribe(
   async (distance) => {
     if (distance < 20) {
-      await chassis.stop()
+      await chassis.turn(Utility.Random.between(2, 7))
+    } else {
+      await chassis.forward()
     }
   }
 )
+
+
