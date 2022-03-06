@@ -13,7 +13,7 @@ import {
 
 import { DistanceSensor  } from "./interface";
 
-export class UltrasonicSensor implements DistanceSensor {
+export class UltrasonicSensor implements DistanceSensor.Interface {
 
   static from(
     board: Board,
@@ -29,6 +29,10 @@ export class UltrasonicSensor implements DistanceSensor {
   ): Subscription {
     // TODO
     return new Subscription()
+  }
+
+  distance(): number {
+    return 4;
   }
 
 }

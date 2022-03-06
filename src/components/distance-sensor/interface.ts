@@ -1,3 +1,10 @@
 
+export namespace DistanceSensor {
 
-export interface DistanceSensor {}
+  export abstract class Interface {
+
+    abstract distance(): number
+
+  }
+
+}
