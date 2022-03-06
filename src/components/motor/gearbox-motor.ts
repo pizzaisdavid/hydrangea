@@ -1,27 +1,33 @@
 
 import {
-  Board,
-  System
+  Board
 } from '@/system'
 
 import {
   Motor
 } from './motor'
 
-export class GearboxMotor implements Motor {
+export namespace GearboxMotor {
 
-  static from(
+  export function from(
     board: Board,
-    configuration: System.Configuration_v2
-  ): GearboxMotor {
-    return new GearboxMotor()
+    options: Motor.Options
+  ): Class {
+    return new Class()
   }
 
-  start(): Promise<void> {
-    throw new Error('Method not implemented.')
-  }
-  stop(): Promise<void> {
-    throw new Error('Method not implemented.')
+  export class Class implements Motor.Interface {
+
+    forward(): Promise<void> {
+      throw new Error('Method not implemented.')
+    }
+    stop(): Promise<void> {
+      throw new Error('Method not implemented.')
+    }
+    reverse(): Promise<void> {
+      throw new Error('Method not implemented.')
+    }
+
   }
 
 }
