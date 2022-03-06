@@ -1,5 +1,12 @@
-import { Board, System } from '../..'
-import { Motor } from './motor'
+
+import {
+  Board,
+  System
+} from '@/system'
+
+import {
+  Motor
+} from './motor'
 
 export class GearboxMotor implements Motor {
 
