@@ -9,8 +9,8 @@ import {
 } from './../src/components'
 
 import {
-  Utility
-} from './../src/utility'
+  Random
+} from '../src/utility'
 
 const board = new Hydrangea()
 
@@ -20,26 +20,39 @@ const chassis = Segway.from({
   right: GearboxMotor.from(board, { pin: 6 })
 })
 
-Flowchat
-  .decision({
-    condition: () => sensor.distance() < 20,
-    then: () => chassis.turn(Utility.Random.between(2, 7)),
-    else: () => chassis.forward()
+Flow.main({
+  execute: Flow.decision({
+    execute: () => sensor.distance() < 20,
+    true: () => chassis.turn(Random.between({ minimum: 2, maximum: 7 })),
+    false: () => chassis.forward()
   })
+})
+namespace Flow {
 
-namespace Flowchat {
-
-  interface IfOptions {
-    condition: () => boolean
-    then: () => Promise<void>
-    else: () => Promise<void>
-  }
-
-  export async function decision(optons: IfOptions) {
-    if (optons.condition()) {
-      await optons.then()
-    } else {
-      await optons.else()
+  export async function main(
+    input: {
+      execute: () => Promise<void>
+    }
+  ) {
+    while (true) {
+      await input.execute()
     }
   }
+
+  export function decision(
+    input: {
+      execute: () => boolean,
+      true: () => Promise<void>,
+      false: () => Promise<void>
+    }
+  ) {
+    return async () => {
+      if (input.execute()) {
+        await input.true()
+      } else {
+        await input.false()
+      }
+    }
+  }
+
 }
